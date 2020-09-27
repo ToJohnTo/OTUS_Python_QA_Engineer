@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on linux)" generated="20200817 15:05:20.525" rpa="false">
+<suite id="s1" name="Example BDT" source="/home/john/Study/OTUS/PythonQAOtus_Lesson30/Tests/Example_BDT.robot">
+<test id="s1-t1" name="Edit New Product In Catalog With Db Validation">
+<kw name="Setup configure test for edit product" type="setup">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:20.679" level="INFO">Connecting using : pymysql.connect(db=bitnami_opencart, user=root, passwd=, host=127.0.0.1, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20200817 15:05:20.672" endtime="20200817 15:05:20.682"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${WEB_ADMIN_PATH}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200817 15:05:20.683" level="INFO">Opening browser 'chrome' to base url 'https://localhost/admin'.</msg>
+<msg timestamp="20200817 15:05:21.698" level="DEBUG">POST http://127.0.0.1:55083/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}</msg>
+<msg timestamp="20200817 15:05:21.699" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:55083</msg>
+<msg timestamp="20200817 15:05:22.232" level="DEBUG">http://127.0.0.1:55083 "POST /session HTTP/1.1" 200 683</msg>
+<msg timestamp="20200817 15:05:22.233" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.233" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/timeouts {"script": 5000}</msg>
+<msg timestamp="20200817 15:05:22.234" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.234" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.235" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/timeouts {"implicit": 0}</msg>
+<msg timestamp="20200817 15:05:22.236" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.236" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.236" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/url {"url": "https://localhost/admin"}</msg>
+<msg timestamp="20200817 15:05:22.746" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.747" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.747" level="DEBUG">Opened browser with session id 15c72885a19581a5f206071a0055f615.</msg>
+<status status="PASS" starttime="20200817 15:05:20.683" endtime="20200817 15:05:22.747"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:20.672" endtime="20200817 15:05:22.747"></status>
+</kw>
+<kw name="Login" library="resource-file">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Set username" library="resource-file">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:22.750" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:22.768" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:22.768" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.768" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/clear {"id": "7c36e714-538a-468f-916f-3081f2b496dc"}</msg>
+<msg timestamp="20200817 15:05:22.803" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.804" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:22.749" endtime="20200817 15:05:22.804"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:22.804" level="INFO">Typing text 'user' into text field 'id:input-username'.</msg>
+<msg timestamp="20200817 15:05:22.804" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:22.811" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:22.811" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.811" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/clear {"id": "7c36e714-538a-468f-916f-3081f2b496dc"}</msg>
+<msg timestamp="20200817 15:05:22.829" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.829" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.829" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/value {"text": "user", "value": ["u", "s", "e", "r"], "id": "7c36e714-538a-468f-916f-3081f2b496dc"}</msg>
+<msg timestamp="20200817 15:05:22.882" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/7c36e714-538a-468f-916f-3081f2b496dc/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.882" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:22.804" endtime="20200817 15:05:22.882"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:22.748" endtime="20200817 15:05:22.882"></status>
+</kw>
+<kw name="Set password" library="resource-file">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PASSWORD}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:22.883" level="INFO">Typing password into text field 'id:input-password'.</msg>
+<msg timestamp="20200817 15:05:22.883" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "[id=\"input-password\"]"}</msg>
+<msg timestamp="20200817 15:05:22.896" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:22.897" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.897" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/dc095f8d-389d-480b-ab59-df040ec0c197/clear {"id": "dc095f8d-389d-480b-ab59-df040ec0c197"}</msg>
+<msg timestamp="20200817 15:05:22.936" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/dc095f8d-389d-480b-ab59-df040ec0c197/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:22.937" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:22.937" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20200817 15:05:22.998" level="INFO">Log level changed from NONE to DEBUG.</msg>
+<status status="PASS" starttime="20200817 15:05:22.883" endtime="20200817 15:05:22.998"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:22.882" endtime="20200817 15:05:22.998"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3sec</arg>
+<arg>1sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:23.000" level="INFO">Clicking element 'css:.btn.btn-primary'.</msg>
+<msg timestamp="20200817 15:05:23.000" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": ".btn.btn-primary"}</msg>
+<msg timestamp="20200817 15:05:23.012" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:23.013" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:23.013" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/9263c5fa-c296-4b32-94e2-a341e88b1f7e/click {"id": "9263c5fa-c296-4b32-94e2-a341e88b1f7e"}</msg>
+<msg timestamp="20200817 15:05:33.720" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/9263c5fa-c296-4b32-94e2-a341e88b1f7e/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:33.721" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:22.999" endtime="20200817 15:05:33.721"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:22.999" endtime="20200817 15:05:33.721"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:22.748" endtime="20200817 15:05:33.721"></status>
+</kw>
+<kw name="Verify Page Title Contains" library="resource-file">
+<arguments>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20200817 15:05:33.722" level="DEBUG">GET http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/title {}</msg>
+<msg timestamp="20200817 15:05:33.739" level="DEBUG">http://127.0.0.1:55083 "GET /session/15c72885a19581a5f206071a0055f615/title HTTP/1.1" 200 21</msg>
+<msg timestamp="20200817 15:05:33.739" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:33.739" level="INFO">${title} = Dashboard</msg>
+<status status="PASS" starttime="20200817 15:05:33.722" endtime="20200817 15:05:33.739"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${value}</arg>
+</arguments>
+<status status="PASS" starttime="20200817 15:05:33.739" endtime="20200817 15:05:33.740"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:33.721" endtime="20200817 15:05:33.740"></status>
+</kw>
+<kw name="Add Product To Catalog" library="resource-file">
+<arguments>
+<arg>${TEST_PRODUCT_NAME}</arg>
+<arg>TestMeta</arg>
+<arg>${TEST_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Open Catalog Products" library="resource-file">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_MENU_CATALOG}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:33.742" level="INFO">Clicking element 'css:#menu-catalog'.</msg>
+<msg timestamp="20200817 15:05:33.742" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#menu-catalog"}</msg>
+<msg timestamp="20200817 15:05:33.757" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:33.757" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:33.757" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/b44e48e3-02f3-4411-ac9c-19bc83f918d9/click {"id": "b44e48e3-02f3-4411-ac9c-19bc83f918d9"}</msg>
+<msg timestamp="20200817 15:05:33.815" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/b44e48e3-02f3-4411-ac9c-19bc83f918d9/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:33.815" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:33.741" endtime="20200817 15:05:33.815"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_CATALOG_ITEMS}</arg>
+</arguments>
+<assign>
+<var>${LOCATOR_CATALOG_ITEMS}</var>
+</assign>
+<msg timestamp="20200817 15:05:33.816" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#collapse1 &gt; li &gt; a"}</msg>
+<msg timestamp="20200817 15:05:33.836" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 801</msg>
+<msg timestamp="20200817 15:05:33.836" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:33.837" level="INFO">${LOCATOR_CATALOG_ITEMS} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="15c72885a19581a5f206071a0055f615", element="57031847-6f08-4bb0-adb2-b5cd2ea86d2b")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20200817 15:05:33.816" endtime="20200817 15:05:33.837"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_CATALOG_ITEMS}[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_CATALOG_ITEMS}[1]</arg>
+</arguments>
+<msg timestamp="20200817 15:05:33.838" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="15c72885a19581a5f206071a0055f615", element="e90639bf-db66-48aa-ace3-4ea846a882a5")&gt;'.</msg>
+<msg timestamp="20200817 15:05:33.839" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/e90639bf-db66-48aa-ace3-4ea846a882a5/click {"id": "e90639bf-db66-48aa-ace3-4ea846a882a5"}</msg>
+<msg timestamp="20200817 15:05:34.124" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/e90639bf-db66-48aa-ace3-4ea846a882a5/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:34.124" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:33.838" endtime="20200817 15:05:34.124"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:33.837" endtime="20200817 15:05:34.124"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h1[text()='Products']</arg>
+</arguments>
+<msg timestamp="20200817 15:05:34.125" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//h1[text()='Products']"}</msg>
+<msg timestamp="20200817 15:05:34.144" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:34.145" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:34.124" endtime="20200817 15:05:34.145"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:33.741" endtime="20200817 15:05:34.145"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_ADD_NEW_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:34.146" level="INFO">Clicking element 'xpath=//a[@data-original-title='Add New']'.</msg>
+<msg timestamp="20200817 15:05:34.146" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//a[@data-original-title='Add New']"}</msg>
+<msg timestamp="20200817 15:05:34.164" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:34.164" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:34.165" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/a377fc08-8dfc-43b9-9713-05a1bff99ff2/click {"id": "a377fc08-8dfc-43b9-9713-05a1bff99ff2"}</msg>
+<msg timestamp="20200817 15:05:34.772" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/a377fc08-8dfc-43b9-9713-05a1bff99ff2/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:34.773" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:34.145" endtime="20200817 15:05:34.773"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PRODUCT_NAME_INPUT}</arg>
+<arg>${product_name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:34.773" level="INFO">Typing text 'TestProduct' into text field 'css=#input-name1'.</msg>
+<msg timestamp="20200817 15:05:34.774" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#input-name1"}</msg>
+<msg timestamp="20200817 15:05:34.791" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:34.792" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:34.792" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/59b7c482-31ed-440d-9476-082058baea58/clear {"id": "59b7c482-31ed-440d-9476-082058baea58"}</msg>
+<msg timestamp="20200817 15:05:34.837" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/59b7c482-31ed-440d-9476-082058baea58/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:34.838" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:34.838" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/59b7c482-31ed-440d-9476-082058baea58/value {"text": "TestProduct", "value": ["T", "e", "s", "t", "P", "r", "o", "d", "u", "c", "t"], "id": "59b7c482-31ed-440d-9476-082058baea58"}</msg>
+<msg timestamp="20200817 15:05:34.936" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/59b7c482-31ed-440d-9476-082058baea58/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:34.937" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:34.773" endtime="20200817 15:05:34.937"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PRODUCT_META_INPUT}</arg>
+<arg>${product_meta}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:34.938" level="INFO">Typing text 'TestMeta' into text field 'css=#input-meta-title1'.</msg>
+<msg timestamp="20200817 15:05:34.938" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#input-meta-title1"}</msg>
+<msg timestamp="20200817 15:05:34.960" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:34.960" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:34.960" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/5a3625ee-7eef-4ecd-a10b-d1b5ada086df/clear {"id": "5a3625ee-7eef-4ecd-a10b-d1b5ada086df"}</msg>
+<msg timestamp="20200817 15:05:35.010" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/5a3625ee-7eef-4ecd-a10b-d1b5ada086df/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.010" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.010" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/5a3625ee-7eef-4ecd-a10b-d1b5ada086df/value {"text": "TestMeta", "value": ["T", "e", "s", "t", "M", "e", "t", "a"], "id": "5a3625ee-7eef-4ecd-a10b-d1b5ada086df"}</msg>
+<msg timestamp="20200817 15:05:35.088" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/5a3625ee-7eef-4ecd-a10b-d1b5ada086df/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.088" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:34.937" endtime="20200817 15:05:35.088"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_DATA_PRODUCT_TAB}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.089" level="INFO">Clicking link 'Data'.</msg>
+<msg timestamp="20200817 15:05:35.089" level="DEBUG">GET http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/url {}</msg>
+<msg timestamp="20200817 15:05:35.097" level="DEBUG">http://127.0.0.1:55083 "GET /session/15c72885a19581a5f206071a0055f615/url HTTP/1.1" 200 115</msg>
+<msg timestamp="20200817 15:05:35.097" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.097" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//a[(@id='Data' or @name='Data' or @href='Data' or normalize-space(descendant-or-self::text())='Data' or @href='https://localhost/admin/index.php?route=catalog/product/Data')]"}</msg>
+<msg timestamp="20200817 15:05:35.116" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:35.117" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.117" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/d7edcac9-3e64-4088-8bca-0158ad3fc07a/click {"id": "d7edcac9-3e64-4088-8bca-0158ad3fc07a"}</msg>
+<msg timestamp="20200817 15:05:35.204" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/d7edcac9-3e64-4088-8bca-0158ad3fc07a/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.205" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:35.088" endtime="20200817 15:05:35.205"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PRODUCT_MODEL_INPUT}</arg>
+<arg>${product_model}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.206" level="INFO">Typing text 'TestProduct' into text field 'css=#input-model'.</msg>
+<msg timestamp="20200817 15:05:35.206" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#input-model"}</msg>
+<msg timestamp="20200817 15:05:35.220" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:35.220" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.221" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/0491cb86-fdee-4aab-9223-04efd7e78966/clear {"id": "0491cb86-fdee-4aab-9223-04efd7e78966"}</msg>
+<msg timestamp="20200817 15:05:35.265" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/0491cb86-fdee-4aab-9223-04efd7e78966/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.266" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.266" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/0491cb86-fdee-4aab-9223-04efd7e78966/value {"text": "TestProduct", "value": ["T", "e", "s", "t", "P", "r", "o", "d", "u", "c", "t"], "id": "0491cb86-fdee-4aab-9223-04efd7e78966"}</msg>
+<msg timestamp="20200817 15:05:35.360" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/0491cb86-fdee-4aab-9223-04efd7e78966/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.360" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:35.205" endtime="20200817 15:05:35.361"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_SAVE_NEW_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.362" level="INFO">Clicking element 'xpath=//button[@data-original-title='Save']'.</msg>
+<msg timestamp="20200817 15:05:35.362" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//button[@data-original-title='Save']"}</msg>
+<msg timestamp="20200817 15:05:35.382" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:35.383" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.383" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/e97b82ab-30ad-45fb-b013-0be5cfaf73ba/click {"id": "e97b82ab-30ad-45fb-b013-0be5cfaf73ba"}</msg>
+<msg timestamp="20200817 15:05:35.762" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/e97b82ab-30ad-45fb-b013-0be5cfaf73ba/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.762" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:35.361" endtime="20200817 15:05:35.763"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:33.740" endtime="20200817 15:05:35.763"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Check Product In Database</arg>
+<arg>${TEST_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Check Product In Database" library="resource-file">
+<arguments>
+<arg>${TEST_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select model from ${PRODUCT_DB} where model = '${value}'</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.765" level="INFO">Executing : Check If Exists In Database  |  select model from oc_product where model = 'TestProduct' </msg>
+<msg timestamp="20200817 15:05:35.765" level="INFO">Executing : Query  |  select model from oc_product where model = 'TestProduct' </msg>
+<status status="PASS" starttime="20200817 15:05:35.764" endtime="20200817 15:05:35.768"></status>
+</kw>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select name from ${PRODUCT_DESCRIPTION_DB} where name = '${value}'</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.770" level="INFO">Executing : Check If Exists In Database  |  select name from oc_product_description where name = 'TestProduct' </msg>
+<msg timestamp="20200817 15:05:35.770" level="INFO">Executing : Query  |  select name from oc_product_description where name = 'TestProduct' </msg>
+<status status="PASS" starttime="20200817 15:05:35.769" endtime="20200817 15:05:35.771"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:35.764" endtime="20200817 15:05:35.771"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:35.763" endtime="20200817 15:05:35.771"></status>
+</kw>
+<kw name="Change Product Name In Catalog" library="resource-file">
+<arguments>
+<arg>old_product_name=${TEST_PRODUCT_NAME}</arg>
+<arg>new_product_name=${NEW_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Open Catalog Products" library="resource-file">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_MENU_CATALOG}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.773" level="INFO">Clicking element 'css:#menu-catalog'.</msg>
+<msg timestamp="20200817 15:05:35.773" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#menu-catalog"}</msg>
+<msg timestamp="20200817 15:05:35.784" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:35.784" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.785" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/01154f23-319f-4fc8-8cd5-ebc563be9118/click {"id": "01154f23-319f-4fc8-8cd5-ebc563be9118"}</msg>
+<msg timestamp="20200817 15:05:35.840" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/01154f23-319f-4fc8-8cd5-ebc563be9118/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:35.840" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:35.773" endtime="20200817 15:05:35.840"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_CATALOG_ITEMS}</arg>
+</arguments>
+<assign>
+<var>${LOCATOR_CATALOG_ITEMS}</var>
+</assign>
+<msg timestamp="20200817 15:05:35.841" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#collapse1 &gt; li &gt; a"}</msg>
+<msg timestamp="20200817 15:05:35.853" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 801</msg>
+<msg timestamp="20200817 15:05:35.853" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:35.854" level="INFO">${LOCATOR_CATALOG_ITEMS} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="15c72885a19581a5f206071a0055f615", element="319853b3-5c19-4448-be69-1137507c408d")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20200817 15:05:35.840" endtime="20200817 15:05:35.854"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_CATALOG_ITEMS}[1]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_CATALOG_ITEMS}[1]</arg>
+</arguments>
+<msg timestamp="20200817 15:05:35.854" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="15c72885a19581a5f206071a0055f615", element="e590a18a-87d0-446d-ab43-7eb85a883b3a")&gt;'.</msg>
+<msg timestamp="20200817 15:05:35.855" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/e590a18a-87d0-446d-ab43-7eb85a883b3a/click {"id": "e590a18a-87d0-446d-ab43-7eb85a883b3a"}</msg>
+<msg timestamp="20200817 15:05:36.064" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/e590a18a-87d0-446d-ab43-7eb85a883b3a/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:36.064" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:35.854" endtime="20200817 15:05:36.065"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:35.854" endtime="20200817 15:05:36.065"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//h1[text()='Products']</arg>
+</arguments>
+<msg timestamp="20200817 15:05:36.065" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//h1[text()='Products']"}</msg>
+<msg timestamp="20200817 15:05:36.083" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.084" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:36.065" endtime="20200817 15:05:36.084"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:35.772" endtime="20200817 15:05:36.084"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_INPUT_FILTER_NAME}</arg>
+<arg>${old_product_name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:36.085" level="INFO">Typing text 'TestProduct' into text field 'css:#input-name'.</msg>
+<msg timestamp="20200817 15:05:36.085" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#input-name"}</msg>
+<msg timestamp="20200817 15:05:36.099" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.099" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.099" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/1af1e627-d0f6-4c2a-9098-fa615cfbc780/clear {"id": "1af1e627-d0f6-4c2a-9098-fa615cfbc780"}</msg>
+<msg timestamp="20200817 15:05:36.142" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/1af1e627-d0f6-4c2a-9098-fa615cfbc780/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:36.142" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.143" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/1af1e627-d0f6-4c2a-9098-fa615cfbc780/value {"text": "TestProduct", "value": ["T", "e", "s", "t", "P", "r", "o", "d", "u", "c", "t"], "id": "1af1e627-d0f6-4c2a-9098-fa615cfbc780"}</msg>
+<msg timestamp="20200817 15:05:36.220" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/1af1e627-d0f6-4c2a-9098-fa615cfbc780/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:36.221" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:36.085" endtime="20200817 15:05:36.221"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_FILTER_SUBMIT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:36.221" level="INFO">Clicking button 'css=#button-filter'.</msg>
+<msg timestamp="20200817 15:05:36.222" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#button-filter"}</msg>
+<msg timestamp="20200817 15:05:36.238" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.238" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.238" level="DEBUG">GET http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/name {"id": "17524e2e-2da0-465b-a0e6-696bb6482c4b"}</msg>
+<msg timestamp="20200817 15:05:36.248" level="DEBUG">http://127.0.0.1:55083 "GET /session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/name HTTP/1.1" 200 18</msg>
+<msg timestamp="20200817 15:05:36.248" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.249" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#button-filter"}</msg>
+<msg timestamp="20200817 15:05:36.259" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.260" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.260" level="DEBUG">GET http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/name {"id": "17524e2e-2da0-465b-a0e6-696bb6482c4b"}</msg>
+<msg timestamp="20200817 15:05:36.266" level="DEBUG">http://127.0.0.1:55083 "GET /session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/name HTTP/1.1" 200 18</msg>
+<msg timestamp="20200817 15:05:36.266" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.267" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/click {"id": "17524e2e-2da0-465b-a0e6-696bb6482c4b"}</msg>
+<msg timestamp="20200817 15:05:36.484" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/17524e2e-2da0-465b-a0e6-696bb6482c4b/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:36.484" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:36.221" endtime="20200817 15:05:36.484"></status>
+</kw>
+<kw name="Select First Product In Products" library="resource-file">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css=tbody td:first-child input</arg>
+</arguments>
+<msg timestamp="20200817 15:05:36.485" level="INFO">Clicking element 'css=tbody td:first-child input'.</msg>
+<msg timestamp="20200817 15:05:36.485" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "tbody td:first-child input"}</msg>
+<msg timestamp="20200817 15:05:36.517" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.517" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.518" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/7b251f6c-b14a-4ab5-9953-13e40f7dbe75/click {"id": "7b251f6c-b14a-4ab5-9953-13e40f7dbe75"}</msg>
+<msg timestamp="20200817 15:05:36.579" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/7b251f6c-b14a-4ab5-9953-13e40f7dbe75/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:36.579" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:36.485" endtime="20200817 15:05:36.579"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:36.485" endtime="20200817 15:05:36.579"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_EDIT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:36.580" level="INFO">Clicking element 'css:.fa.fa-pencil'.</msg>
+<msg timestamp="20200817 15:05:36.580" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": ".fa.fa-pencil"}</msg>
+<msg timestamp="20200817 15:05:36.598" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:36.598" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:36.598" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/5a672e13-a491-48c7-932d-08d468686f10/click {"id": "5a672e13-a491-48c7-932d-08d468686f10"}</msg>
+<msg timestamp="20200817 15:05:37.109" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/5a672e13-a491-48c7-932d-08d468686f10/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:37.110" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:36.579" endtime="20200817 15:05:37.110"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PRODUCT_NAME_INPUT}</arg>
+<arg>${new_product_name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.111" level="INFO">Typing text 'TestProductNEW' into text field 'css=#input-name1'.</msg>
+<msg timestamp="20200817 15:05:37.111" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "css selector", "value": "#input-name1"}</msg>
+<msg timestamp="20200817 15:05:37.127" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:37.127" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:37.128" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3/clear {"id": "dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3"}</msg>
+<msg timestamp="20200817 15:05:37.174" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:37.174" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:37.175" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3/value {"text": "TestProductNEW", "value": ["T", "e", "s", "t", "P", "r", "o", "d", "u", "c", "t", "N", "E", "W"], "id": "dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3"}</msg>
+<msg timestamp="20200817 15:05:37.282" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/dd0e5ad6-723d-4f8b-8b57-71cfb6b7aaf3/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:37.282" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:37.110" endtime="20200817 15:05:37.283"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_SAVE_NEW_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.283" level="INFO">Clicking element 'xpath=//button[@data-original-title='Save']'.</msg>
+<msg timestamp="20200817 15:05:37.283" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/elements {"using": "xpath", "value": "//button[@data-original-title='Save']"}</msg>
+<msg timestamp="20200817 15:05:37.297" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:37.298" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:37.298" level="DEBUG">POST http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615/element/3d3d4c7c-83a4-44fe-a204-e25f593768d0/click {"id": "3d3d4c7c-83a4-44fe-a204-e25f593768d0"}</msg>
+<msg timestamp="20200817 15:05:37.611" level="DEBUG">http://127.0.0.1:55083 "POST /session/15c72885a19581a5f206071a0055f615/element/3d3d4c7c-83a4-44fe-a204-e25f593768d0/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:37.611" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:37.283" endtime="20200817 15:05:37.611"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:35.772" endtime="20200817 15:05:37.611"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3 sec</arg>
+<arg>1 sec</arg>
+<arg>Check Product Name In Database</arg>
+<arg>${NEW_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Check Product Name In Database" library="resource-file">
+<arguments>
+<arg>${NEW_PRODUCT_NAME}</arg>
+</arguments>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select name from ${PRODUCT_DESCRIPTION_DB} where name = '${value}'</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.613" level="INFO">Executing : Check If Exists In Database  |  select name from oc_product_description where name = 'TestProductNEW' </msg>
+<msg timestamp="20200817 15:05:37.613" level="INFO">Executing : Query  |  select name from oc_product_description where name = 'TestProductNEW' </msg>
+<status status="PASS" starttime="20200817 15:05:37.612" endtime="20200817 15:05:37.614"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:37.612" endtime="20200817 15:05:37.615"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:37.612" endtime="20200817 15:05:37.615"></status>
+</kw>
+<kw name="Release configure test for edit product" type="teardown">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>delete from ${PRODUCT_DB} where model = '${TEST_PRODUCT_NAME}'</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.616" level="INFO">Executing : Execute SQL String  |  delete from oc_product where model = 'TestProduct' </msg>
+<status status="PASS" starttime="20200817 15:05:37.616" endtime="20200817 15:05:37.618"></status>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>delete from ${PRODUCT_DESCRIPTION_DB} where name = '${TEST_PRODUCT_NAME}'</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.619" level="INFO">Executing : Execute SQL String  |  delete from oc_product_description where name = 'TestProduct' </msg>
+<status status="PASS" starttime="20200817 15:05:37.618" endtime="20200817 15:05:37.623"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20200817 15:05:37.623" level="DEBUG">Closing browser with session id 15c72885a19581a5f206071a0055f615.</msg>
+<msg timestamp="20200817 15:05:37.624" level="DEBUG">DELETE http://127.0.0.1:55083/session/15c72885a19581a5f206071a0055f615 {}</msg>
+<msg timestamp="20200817 15:05:37.675" level="DEBUG">http://127.0.0.1:55083 "DELETE /session/15c72885a19581a5f206071a0055f615 HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:37.676" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:37.623" endtime="20200817 15:05:37.680"></status>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20200817 15:05:37.680" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20200817 15:05:37.680" endtime="20200817 15:05:37.681"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:37.615" endtime="20200817 15:05:37.681"></status>
+</kw>
+<doc>Edit product in catalog with ui and validate precence in database</doc>
+<tags>
+<tag>AddProduct</tag>
+<tag>DB</tag>
+</tags>
+<status status="PASS" starttime="20200817 15:05:20.671" endtime="20200817 15:05:37.681" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Check test login">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${WEB_ADMIN_PATH}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200817 15:05:37.683" level="INFO">Opening browser 'chrome' to base url 'https://localhost/admin'.</msg>
+<msg timestamp="20200817 15:05:38.689" level="DEBUG">POST http://127.0.0.1:37849/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}</msg>
+<msg timestamp="20200817 15:05:38.690" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:37849</msg>
+<msg timestamp="20200817 15:05:39.219" level="DEBUG">http://127.0.0.1:37849 "POST /session HTTP/1.1" 200 683</msg>
+<msg timestamp="20200817 15:05:39.220" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.220" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/timeouts {"script": 5000}</msg>
+<msg timestamp="20200817 15:05:39.221" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.221" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.221" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/timeouts {"implicit": 0}</msg>
+<msg timestamp="20200817 15:05:39.222" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.223" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.223" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/url {"url": "https://localhost/admin"}</msg>
+<msg timestamp="20200817 15:05:39.737" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.737" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.737" level="DEBUG">Opened browser with session id 7f0bb904f87df301eb1821fdffae66cf.</msg>
+<status status="PASS" starttime="20200817 15:05:37.683" endtime="20200817 15:05:39.738"></status>
+</kw>
+<kw name="Login" library="resource-file">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Set username" library="resource-file">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:39.741" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:39.756" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:39.756" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.756" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/clear {"id": "787dfd79-3ae0-4036-bef6-d61f05985ae3"}</msg>
+<msg timestamp="20200817 15:05:39.791" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.791" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:39.740" endtime="20200817 15:05:39.791"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:39.792" level="INFO">Typing text 'user' into text field 'id:input-username'.</msg>
+<msg timestamp="20200817 15:05:39.792" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:39.798" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:39.798" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.799" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/clear {"id": "787dfd79-3ae0-4036-bef6-d61f05985ae3"}</msg>
+<msg timestamp="20200817 15:05:39.818" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.818" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.818" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/value {"text": "user", "value": ["u", "s", "e", "r"], "id": "787dfd79-3ae0-4036-bef6-d61f05985ae3"}</msg>
+<msg timestamp="20200817 15:05:39.872" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/element/787dfd79-3ae0-4036-bef6-d61f05985ae3/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.872" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:39.791" endtime="20200817 15:05:39.873"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:39.739" endtime="20200817 15:05:39.873"></status>
+</kw>
+<kw name="Set password" library="resource-file">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PASSWORD}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:39.874" level="INFO">Typing password into text field 'id:input-password'.</msg>
+<msg timestamp="20200817 15:05:39.874" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/elements {"using": "css selector", "value": "[id=\"input-password\"]"}</msg>
+<msg timestamp="20200817 15:05:39.887" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:39.888" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.888" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/element/884157d0-c68a-4afb-a667-8824cac3847b/clear {"id": "884157d0-c68a-4afb-a667-8824cac3847b"}</msg>
+<msg timestamp="20200817 15:05:39.928" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/element/884157d0-c68a-4afb-a667-8824cac3847b/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:39.929" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:39.929" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20200817 15:05:39.990" level="INFO">Log level changed from NONE to DEBUG.</msg>
+<status status="PASS" starttime="20200817 15:05:39.873" endtime="20200817 15:05:39.990"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:39.873" endtime="20200817 15:05:39.990"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3sec</arg>
+<arg>1sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:39.992" level="INFO">Clicking element 'css:.btn.btn-primary'.</msg>
+<msg timestamp="20200817 15:05:39.992" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/elements {"using": "css selector", "value": ".btn.btn-primary"}</msg>
+<msg timestamp="20200817 15:05:40.009" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:40.010" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:40.010" level="DEBUG">POST http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/element/7149f3da-4dd9-45c7-97af-1449664c231f/click {"id": "7149f3da-4dd9-45c7-97af-1449664c231f"}</msg>
+<msg timestamp="20200817 15:05:50.664" level="DEBUG">http://127.0.0.1:37849 "POST /session/7f0bb904f87df301eb1821fdffae66cf/element/7149f3da-4dd9-45c7-97af-1449664c231f/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:50.664" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:39.992" endtime="20200817 15:05:50.664"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:39.991" endtime="20200817 15:05:50.664"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:39.738" endtime="20200817 15:05:50.665"></status>
+</kw>
+<kw name="Verify Page Title Contains" library="resource-file">
+<arguments>
+<arg>Dashboard</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20200817 15:05:50.665" level="DEBUG">GET http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf/title {}</msg>
+<msg timestamp="20200817 15:05:50.684" level="DEBUG">http://127.0.0.1:37849 "GET /session/7f0bb904f87df301eb1821fdffae66cf/title HTTP/1.1" 200 21</msg>
+<msg timestamp="20200817 15:05:50.684" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:50.684" level="INFO">${title} = Dashboard</msg>
+<status status="PASS" starttime="20200817 15:05:50.665" endtime="20200817 15:05:50.684"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${value}</arg>
+</arguments>
+<status status="PASS" starttime="20200817 15:05:50.685" endtime="20200817 15:05:50.685"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:50.665" endtime="20200817 15:05:50.685"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20200817 15:05:50.686" level="DEBUG">Closing browser with session id 7f0bb904f87df301eb1821fdffae66cf.</msg>
+<msg timestamp="20200817 15:05:50.686" level="DEBUG">DELETE http://127.0.0.1:37849/session/7f0bb904f87df301eb1821fdffae66cf {}</msg>
+<msg timestamp="20200817 15:05:50.737" level="DEBUG">http://127.0.0.1:37849 "DELETE /session/7f0bb904f87df301eb1821fdffae66cf HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:50.738" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:50.686" endtime="20200817 15:05:50.743"></status>
+</kw>
+<doc>Check login</doc>
+<status status="PASS" starttime="20200817 15:05:37.682" endtime="20200817 15:05:50.743" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Check test unlogin">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${WEB_ADMIN_PATH}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200817 15:05:50.745" level="INFO">Opening browser 'chrome' to base url 'https://localhost/admin'.</msg>
+<msg timestamp="20200817 15:05:51.750" level="DEBUG">POST http://127.0.0.1:53303/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": ["--ignore-certificate-errors"]}}}</msg>
+<msg timestamp="20200817 15:05:51.751" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1:53303</msg>
+<msg timestamp="20200817 15:05:52.285" level="DEBUG">http://127.0.0.1:53303 "POST /session HTTP/1.1" 200 683</msg>
+<msg timestamp="20200817 15:05:52.285" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.286" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/timeouts {"script": 5000}</msg>
+<msg timestamp="20200817 15:05:52.286" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.287" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.287" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/timeouts {"implicit": 0}</msg>
+<msg timestamp="20200817 15:05:52.287" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.288" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.288" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/url {"url": "https://localhost/admin"}</msg>
+<msg timestamp="20200817 15:05:52.752" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.753" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.753" level="DEBUG">Opened browser with session id a9655c8321c5beec078df28a74ac5e79.</msg>
+<status status="PASS" starttime="20200817 15:05:50.744" endtime="20200817 15:05:52.753"></status>
+</kw>
+<kw name="Login" library="resource-file">
+<arguments>
+<arg>${LOGIN}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Set username" library="resource-file">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:52.756" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:52.773" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:52.773" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.774" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/clear {"id": "d345b01e-e04d-4fe9-907f-9bcde68e88c9"}</msg>
+<msg timestamp="20200817 15:05:52.815" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.816" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:52.755" endtime="20200817 15:05:52.816"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:52.817" level="INFO">Typing text 'user' into text field 'id:input-username'.</msg>
+<msg timestamp="20200817 15:05:52.817" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/elements {"using": "css selector", "value": "[id=\"input-username\"]"}</msg>
+<msg timestamp="20200817 15:05:52.828" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:52.829" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.829" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/clear {"id": "d345b01e-e04d-4fe9-907f-9bcde68e88c9"}</msg>
+<msg timestamp="20200817 15:05:52.865" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.865" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.866" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/value {"text": "user", "value": ["u", "s", "e", "r"], "id": "d345b01e-e04d-4fe9-907f-9bcde68e88c9"}</msg>
+<msg timestamp="20200817 15:05:52.940" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/d345b01e-e04d-4fe9-907f-9bcde68e88c9/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:52.940" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:52.816" endtime="20200817 15:05:52.941"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:52.755" endtime="20200817 15:05:52.941"></status>
+</kw>
+<kw name="Set password" library="resource-file">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_PASSWORD}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:52.942" level="INFO">Typing password into text field 'id:input-password'.</msg>
+<msg timestamp="20200817 15:05:52.942" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/elements {"using": "css selector", "value": "[id=\"input-password\"]"}</msg>
+<msg timestamp="20200817 15:05:52.958" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:52.958" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:52.959" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/1ba66c52-38ab-4f44-b435-6a3ef5353205/clear {"id": "1ba66c52-38ab-4f44-b435-6a3ef5353205"}</msg>
+<msg timestamp="20200817 15:05:53.009" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/1ba66c52-38ab-4f44-b435-6a3ef5353205/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:05:53.010" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:53.010" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20200817 15:05:53.077" level="INFO">Log level changed from NONE to DEBUG.</msg>
+<status status="PASS" starttime="20200817 15:05:52.942" endtime="20200817 15:05:53.077"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:52.941" endtime="20200817 15:05:53.077"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3sec</arg>
+<arg>1sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_SUBMIT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:05:53.078" level="INFO">Clicking element 'css:.btn.btn-primary'.</msg>
+<msg timestamp="20200817 15:05:53.078" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/elements {"using": "css selector", "value": ".btn.btn-primary"}</msg>
+<msg timestamp="20200817 15:05:53.094" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:05:53.094" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:05:53.095" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/70551e88-e401-411a-b9e0-012ead2dc3fa/click {"id": "70551e88-e401-411a-b9e0-012ead2dc3fa"}</msg>
+<msg timestamp="20200817 15:06:03.720" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/70551e88-e401-411a-b9e0-012ead2dc3fa/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:06:03.721" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:05:53.078" endtime="20200817 15:06:03.721"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:53.077" endtime="20200817 15:06:03.721"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:05:52.754" endtime="20200817 15:06:03.721"></status>
+</kw>
+<kw name="Logout" library="resource-file">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3sec</arg>
+<arg>1sec</arg>
+<arg>Click Element</arg>
+<arg>${LOCATOR_LOGOUT_BUTTON}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${LOCATOR_LOGOUT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200817 15:06:03.722" level="INFO">Clicking element 'css:.fa.fa-sign-out'.</msg>
+<msg timestamp="20200817 15:06:03.722" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/elements {"using": "css selector", "value": ".fa.fa-sign-out"}</msg>
+<msg timestamp="20200817 15:06:03.761" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20200817 15:06:03.761" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:06:03.761" level="DEBUG">POST http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/element/decef666-f530-422c-a1aa-9ac3952d3b8e/click {"id": "decef666-f530-422c-a1aa-9ac3952d3b8e"}</msg>
+<msg timestamp="20200817 15:06:03.998" level="DEBUG">http://127.0.0.1:53303 "POST /session/a9655c8321c5beec078df28a74ac5e79/element/decef666-f530-422c-a1aa-9ac3952d3b8e/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:06:03.998" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:06:03.722" endtime="20200817 15:06:03.998"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:06:03.721" endtime="20200817 15:06:03.998"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:06:03.721" endtime="20200817 15:06:03.999"></status>
+</kw>
+<kw name="Verify Page Title Contains" library="resource-file">
+<arguments>
+<arg>Administration</arg>
+</arguments>
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20200817 15:06:04.000" level="DEBUG">GET http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79/title {}</msg>
+<msg timestamp="20200817 15:06:04.009" level="DEBUG">http://127.0.0.1:53303 "GET /session/a9655c8321c5beec078df28a74ac5e79/title HTTP/1.1" 200 26</msg>
+<msg timestamp="20200817 15:06:04.009" level="DEBUG">Finished Request</msg>
+<msg timestamp="20200817 15:06:04.009" level="INFO">${title} = Administration</msg>
+<status status="PASS" starttime="20200817 15:06:03.999" endtime="20200817 15:06:04.009"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${value}</arg>
+</arguments>
+<status status="PASS" starttime="20200817 15:06:04.010" endtime="20200817 15:06:04.010"></status>
+</kw>
+<status status="PASS" starttime="20200817 15:06:03.999" endtime="20200817 15:06:04.010"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20200817 15:06:04.010" level="DEBUG">Closing browser with session id a9655c8321c5beec078df28a74ac5e79.</msg>
+<msg timestamp="20200817 15:06:04.011" level="DEBUG">DELETE http://127.0.0.1:53303/session/a9655c8321c5beec078df28a74ac5e79 {}</msg>
+<msg timestamp="20200817 15:06:04.062" level="DEBUG">http://127.0.0.1:53303 "DELETE /session/a9655c8321c5beec078df28a74ac5e79 HTTP/1.1" 200 14</msg>
+<msg timestamp="20200817 15:06:04.063" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20200817 15:06:04.010" endtime="20200817 15:06:04.066"></status>
+</kw>
+<doc>Check unlogin</doc>
+<status status="PASS" starttime="20200817 15:05:50.744" endtime="20200817 15:06:04.066" critical="yes"></status>
+</test>
+<doc>Это пример теста написанного с помощью Robot Framework #2</doc>
+<status status="PASS" starttime="20200817 15:05:20.526" endtime="20200817 15:06:04.067"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">AddProduct</stat>
+<stat pass="1" fail="0">DB</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Example BDT">Example BDT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

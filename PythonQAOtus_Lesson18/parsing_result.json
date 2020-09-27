@@ -1,0 +1,41 @@
+{
+    "name": "access.log",
+    "count_all_queries": 5518,
+    "get_query": 5317,
+    "post_query": 201,
+    "top_ip": [
+        [
+            "192.168.102.28",
+            5516
+        ],
+        [
+            "192.168.100.59",
+            2
+        ]
+    ],
+    "slow_query": [
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "95486\"GET\"http://192.168.110.60/opencart/admin/index.php?route=catalog/product/add&user_token=mKPUsKLZTtTw24x1BsJKZQR1oLzbFdWB\"192.168.102.28",
+        "77423\"GET\"http://192.168.110.60/opencart/admin/view/javascript/font-awesome/css/font-awesome.min.css\"192.168.102.28"
+    ],
+    "top_client_errs": [
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "403\"GET\"-\"192.168.102.28\n",
+        "403\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n",
+        "404\"GET\"-\"192.168.102.28\n"
+    ],
+    "top_server_errs": []
+}

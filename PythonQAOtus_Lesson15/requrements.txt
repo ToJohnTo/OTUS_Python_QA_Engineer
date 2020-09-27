@@ -1,0 +1,4 @@
+pytest==5.4.3
+selenium==3.141.0
+ipython
+pytest-xdist==1.32.0

@@ -1,0 +1,4 @@
+robotframework==3.2.1
+robotframework-seleniumlibrary==4.5.0
+robotframework-databaselibrary==1.2.4
+PyMySQL==0.10.0

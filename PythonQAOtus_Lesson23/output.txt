@@ -1,0 +1,286 @@
+1. Список всех процессов: 
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 11:53 ?        00:00:11 /sbin/init
+root           2       0  0 11:53 ?        00:00:00 [kthreadd]
+root           3       2  0 11:53 ?        00:00:00 [rcu_gp]
+root           4       2  0 11:53 ?        00:00:00 [rcu_par_gp]
+root           6       2  0 11:53 ?        00:00:00 [kworker/0:0H-kblockd]
+root           8       2  0 11:53 ?        00:00:00 [mm_percpu_wq]
+root           9       2  0 11:53 ?        00:00:02 [ksoftirqd/0]
+root          10       2  0 11:53 ?        00:00:00 [rcuc/0]
+root          11       2  0 11:53 ?        00:00:07 [rcu_preempt]
+root          12       2  0 11:53 ?        00:00:00 [rcub/0]
+root          13       2  0 11:53 ?        00:00:00 [migration/0]
+root          14       2  0 11:53 ?        00:00:00 [idle_inject/0]
+root          16       2  0 11:53 ?        00:00:00 [cpuhp/0]
+root          17       2  0 11:53 ?        00:00:00 [cpuhp/1]
+root          18       2  0 11:53 ?        00:00:00 [idle_inject/1]
+root          19       2  0 11:53 ?        00:00:00 [migration/1]
+root          20       2  0 11:53 ?        00:00:00 [rcuc/1]
+root          21       2  0 11:53 ?        00:00:00 [ksoftirqd/1]
+root          23       2  0 11:53 ?        00:00:00 [kworker/1:0H-kblockd]
+root          24       2  0 11:53 ?        00:00:00 [cpuhp/2]
+root          25       2  0 11:53 ?        00:00:00 [idle_inject/2]
+root          26       2  0 11:53 ?        00:00:00 [migration/2]
+root          27       2  0 11:53 ?        00:00:00 [rcuc/2]
+root          28       2  0 11:53 ?        00:00:00 [ksoftirqd/2]
+root          30       2  0 11:53 ?        00:00:00 [kworker/2:0H-kblockd]
+root          31       2  0 11:53 ?        00:00:00 [cpuhp/3]
+root          32       2  0 11:53 ?        00:00:00 [idle_inject/3]
+root          33       2  0 11:53 ?        00:00:00 [migration/3]
+root          34       2  0 11:53 ?        00:00:00 [rcuc/3]
+root          35       2  0 11:53 ?        00:00:01 [ksoftirqd/3]
+root          37       2  0 11:53 ?        00:00:00 [kworker/3:0H-kblockd]
+root          38       2  0 11:53 ?        00:00:00 [kdevtmpfs]
+root          39       2  0 11:53 ?        00:00:00 [netns]
+root          40       2  0 11:53 ?        00:00:00 [rcu_tasks_kthre]
+root          41       2  0 11:53 ?        00:00:00 [kauditd]
+root          44       2  0 11:53 ?        00:00:00 [khungtaskd]
+root          45       2  0 11:53 ?        00:00:00 [oom_reaper]
+root          46       2  0 11:53 ?        00:00:00 [writeback]
+root          47       2  0 11:53 ?        00:00:00 [kcompactd0]
+root          48       2  0 11:53 ?        00:00:00 [ksmd]
+root          49       2  0 11:53 ?        00:00:00 [khugepaged]
+root          93       2  0 11:53 ?        00:00:00 [kintegrityd]
+root          94       2  0 11:53 ?        00:00:00 [kblockd]
+root          95       2  0 11:53 ?        00:00:00 [blkcg_punt_bio]
+root          96       2  0 11:53 ?        00:00:00 [edac-poller]
+root          97       2  0 11:53 ?        00:00:00 [devfreq_wq]
+root          98       2  0 11:53 ?        00:00:00 [watchdogd]
+root         101       2  0 11:53 ?        00:00:00 [kswapd0]
+root         103       2  0 11:53 ?        00:00:00 [kthrotld]
+root         104       2  0 11:53 ?        00:00:00 [acpi_thermal_pm]
+root         105       2  0 11:53 ?        00:00:00 [nvme-wq]
+root         106       2  0 11:53 ?        00:00:00 [nvme-reset-wq]
+root         107       2  0 11:53 ?        00:00:00 [nvme-delete-wq]
+root         109       2  0 11:53 ?        00:00:00 [ipv6_addrconf]
+root         118       2  0 11:53 ?        00:00:00 [kstrp]
+root         132       2  0 11:53 ?        00:00:00 [charger_manager]
+root         158       2  0 11:53 ?        00:00:00 [sdhci]
+root         159       2  0 11:53 ?        00:00:00 [irq/16-mmc0]
+root         161       2  0 11:53 ?        00:00:00 [ata_sff]
+root         163       2  0 11:53 ?        00:00:00 [scsi_eh_0]
+root         164       2  0 11:53 ?        00:00:00 [scsi_tmf_0]
+root         165       2  0 11:53 ?        00:00:00 [scsi_eh_1]
+root         166       2  0 11:53 ?        00:00:00 [scsi_tmf_1]
+root         167       2  0 11:53 ?        00:00:00 [scsi_eh_2]
+root         168       2  0 11:53 ?        00:00:00 [scsi_tmf_2]
+root         169       2  0 11:53 ?        00:00:00 [scsi_eh_3]
+root         170       2  0 11:53 ?        00:00:00 [scsi_tmf_3]
+root         171       2  0 11:53 ?        00:00:00 [scsi_eh_4]
+root         172       2  0 11:53 ?        00:00:00 [scsi_tmf_4]
+root         173       2  0 11:53 ?        00:00:00 [scsi_eh_5]
+root         174       2  0 11:53 ?        00:00:00 [scsi_tmf_5]
+root         197       2  0 11:53 ?        00:00:01 [kworker/1:1H-events_highpri]
+root         204       2  0 11:53 ?        00:00:01 [kworker/2:1H-events_highpri]
+root         211       2  0 11:53 ?        00:00:00 [kworker/0:1H-events_highpri]
+root         212       2  0 11:53 ?        00:00:01 [jbd2/sda1-8]
+root         213       2  0 11:53 ?        00:00:00 [ext4-rsv-conver]
+root         215       2  0 11:53 ?        00:00:01 [kworker/3:1H-events_highpri]
+root         246       1  0 11:53 ?        00:00:01 /usr/lib/systemd/systemd-journald
+root         263       2  0 11:53 ?        00:00:00 [iprt-VBoxWQueue]
+root         264       2  0 11:53 ?        00:00:00 [iprt-VBoxTscThr]
+root         315       1  0 11:53 ?        00:00:01 /usr/lib/systemd/systemd-udevd
+root         319       1  0 11:53 ?        00:00:00 /usr/bin/lvmetad -f
+root         342       2  0 11:53 ?        00:00:00 [irq/29-mei_me]
+root         344       2  0 11:53 ?        00:00:00 [tpm_dev_wq]
+root         353       2  0 11:53 ?        00:00:00 [cfg80211]
+root         369       2  0 11:53 ?        00:00:00 [ktpacpid]
+root         392       2  0 11:53 ?        00:00:52 [irq/31-iwlwifi]
+root         411       2  0 11:53 ?        00:00:00 [cryptd]
+systemd+     550       1  0 11:53 ?        00:00:01 /usr/lib/systemd/systemd-resolved
+root         855       1  0 11:53 ?        00:00:00 /usr/bin/crond -n
+dbus         856       1  0 11:53 ?        00:00:05 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         857       1  0 11:53 ?        00:00:03 /usr/bin/NetworkManager --no-daemon
+polkitd      859       1  0 11:53 ?        00:00:01 /usr/lib/polkit-1/polkitd --no-debug
+root         861       1  0 11:53 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root         890       2  0 11:53 ?        00:00:00 [kworker/u17:1-rb_allocator]
+root         893       1  0 11:53 ?        00:00:00 /usr/lib/bluetooth/bluetoothd
+root         911       1  0 11:53 ?        00:00:00 /usr/bin/gdm
+root         943       1  0 11:53 ?        00:00:00 /usr/lib/accounts-daemon
+mysql        949       1  0 11:53 ?        00:00:11 /usr/bin/mysqld
+root         970       1  0 11:53 ?        00:00:00 /usr/bin/ModemManager
+root         994       1  0 11:53 ?        00:00:00 /usr/bin/wpa_supplicant -u -s -O /run/wpa_supplicant
+root        1007       1  0 11:53 ?        00:00:00 /usr/lib/mbim-proxy
+root        1268       1  0 11:54 ?        00:00:00 /usr/bin/cupsd -l
+root        1335       1  0 11:54 ?        00:00:00 /usr/lib/upowerd
+rtkit       1365       1  0 11:54 ?        00:00:00 /usr/lib/rtkit-daemon
+colord      1495       1  0 11:54 ?        00:00:00 /usr/lib/colord
+root        1538       2  0 11:54 ?        00:00:00 [krfcommd]
+root        1555     911  0 11:55 ?        00:00:00 gdm-session-worker [pam/gdm-password]
+john        1569       1  0 11:55 ?        00:00:00 /usr/lib/systemd/systemd --user
+john        1570    1569  0 11:55 ?        00:00:00 (sd-pam)
+john        1581       1  0 11:55 ?        00:00:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+john        1588    1555  0 11:55 tty2     00:00:00 /usr/lib/gdm-x-session --run-script /usr/bin/gnome-session
+john        1590    1588  2 11:55 tty2     00:07:30 /usr/lib/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -verbose 3
+root        1593    1590  0 11:55 tty2     00:00:00 xf86-video-intel-backlight-helper intel_backlight
+john        1600    1569  0 11:55 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+john        1602    1588  0 11:55 tty2     00:00:00 /usr/lib/gnome-session-binary
+john        1609    1569  0 11:55 ?        00:00:00 /usr/lib/gvfsd
+john        1614    1569  0 11:55 ?        00:00:00 /usr/lib/gvfsd-fuse /run/user/1000/gvfs -f
+john        1643    1569  0 11:55 ?        00:00:00 /usr/lib/at-spi-bus-launcher
+john        1649    1643  0 11:55 ?        00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+john        1658    1569  0 11:55 ?        00:00:00 /usr/lib/gnome-session-ctl --monitor
+john        1659    1569  2 11:55 ?        00:05:58 /usr/bin/pulseaudio --daemonize=no
+john        1661    1569  0 11:55 ?        00:00:00 /usr/lib/gnome-session-binary --systemd-service --session=gnome
+john        1675    1569  3 11:55 ?        00:08:12 /usr/bin/gnome-shell
+john        1684    1659  0 11:55 ?        00:00:00 /usr/lib/pulse/gsettings-helper
+john        1699    1569  0 11:55 ?        00:00:00 /usr/lib/xdg-permission-store
+john        1704    1569  0 11:55 ?        00:00:00 /usr/lib/gnome-shell-calendar-server
+john        1707    1569  0 11:55 ?        00:00:00 /usr/lib/dconf-service
+john        1714    1569  0 11:55 ?        00:00:01 /usr/lib/telepathy/mission-control-5
+john        1717    1569  0 11:55 ?        00:00:00 /usr/lib/evolution-source-registry
+john        1718    1569  0 11:55 ?        00:00:00 /usr/lib/gvfs-udisks2-volume-monitor
+root        1724       1  0 11:55 ?        00:00:01 /usr/lib/udisks2/udisksd
+john        1734    1569  0 11:55 ?        00:00:00 /usr/lib/goa-daemon
+john        1747    1569  0 11:55 ?        00:00:00 /usr/lib/evolution-calendar-factory
+john        1748    1569  0 11:55 ?        00:00:00 /usr/lib/gvfs-mtp-volume-monitor
+john        1754    1569  0 11:55 ?        00:00:00 /usr/lib/gvfs-afc-volume-monitor
+john        1759    1569  0 11:55 ?        00:00:00 /usr/lib/gvfs-goa-volume-monitor
+john        1770    1569  0 11:55 ?        00:00:00 /usr/lib/evolution-addressbook-factory
+john        1784    1569  0 11:55 ?        00:00:00 /usr/lib/goa-identity-service
+john        1797    1609  0 11:55 ?        00:00:00 /usr/lib/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/exec_spaw/0
+john        1803    1569  0 11:55 ?        00:00:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+john        1805    1569  0 11:55 ?        00:00:01 /usr/lib/at-spi2-registryd --use-gnome-session
+john        1817    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-a11y-settings
+john        1818    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-color
+john        1819    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-datetime
+john        1821    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-housekeeping
+john        1824    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-keyboard
+john        1825    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-media-keys
+john        1826    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-power
+john        1827    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-print-notifications
+john        1828    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-rfkill
+john        1831    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-screensaver-proxy
+john        1832    1569  0 11:55 ?        00:00:01 /usr/lib/gsd-sharing
+john        1839    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-smartcard
+john        1840    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-sound
+john        1841    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-usb-protection
+john        1844    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-wacom
+john        1851    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-wwan
+john        1856    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-xsettings
+john        1885    1569  0 11:55 ?        00:00:00 /usr/lib/gsd-printer
+john        1950    1661  0 11:55 ?        00:00:00 /usr/lib/tracker-miner-fs
+john        1952    1661  0 11:55 ?        00:00:00 /usr/lib/gsd-disk-utility-notify
+john        1958    1661  0 11:55 ?        00:00:00 /usr/lib/evolution-data-server/evolution-alarm-notify
+john        1990    1675  0 11:55 ?        00:00:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -D 53:28:1313:740:1
+john        2087    1569  2 11:55 ?        00:05:26 /usr/lib/chromium/chromium
+john        2092    2087  0 11:55 ?        00:00:00 /usr/lib/chromium/chromium --type=zygote --no-zygote-sandbox
+john        2093    2087  0 11:55 ?        00:00:00 /usr/lib/chromium/chromium --type=zygote
+john        2095    2093  0 11:55 ?        00:00:00 /usr/lib/chromium/chromium --type=zygote
+john        2114    2092  7 11:56 ?        00:19:15 /usr/lib/chromium/chromium --type=gpu-process --field-trial-handle=12804587167843650098,17736000208107465137,131072 --gpu-preferences=MAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA= --shared-files
+john        2118    2087  0 11:56 ?        00:02:12 /usr/lib/chromium/chromium --type=utility --utility-sub-type=network.mojom.NetworkService --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --service-sandbox-type=network --shared-files
+john        2171    2095  0 11:56 ?        00:00:01 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --extension-process --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=4 --no-v8-untrusted-code-mitigations --shared-files
+john        2595    2095 13 11:56 ?        00:37:03 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=16 --no-v8-untrusted-code-mitigations --shared-files
+john        2607    2095  0 11:56 ?        00:00:46 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=24 --no-v8-untrusted-code-mitigations --shared-files
+john        2630    2095  0 11:56 ?        00:00:43 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=25 --no-v8-untrusted-code-mitigations --shared-files
+john        2643    2095  0 11:56 ?        00:00:10 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=26 --no-v8-untrusted-code-mitigations --shared-files
+john        2650    2095  0 11:56 ?        00:00:01 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=27 --no-v8-untrusted-code-mitigations --shared-files
+john        2669    2095  0 11:56 ?        00:00:13 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=28 --no-v8-untrusted-code-mitigations --shared-files
+john        2684    2095  0 11:56 ?        00:00:04 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=29 --no-v8-untrusted-code-mitigations --shared-files
+john        2715    2095  0 11:56 ?        00:00:01 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=18 --no-v8-untrusted-code-mitigations --shared-files
+john        2716    2095  0 11:56 ?        00:00:01 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=19 --no-v8-untrusted-code-mitigations --shared-files
+john        2757    2095  0 11:57 ?        00:00:22 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --extension-process --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=34 --no-v8-untrusted-code-mitigations --shared-files
+john        2773    2095  0 11:57 ?        00:00:07 /usr/lib/chromium/chromium --type=ppapi --field-trial-handle=12804587167843650098,17736000208107465137,131072 --ppapi-flash-args --lang=en-US --shared-files
+john        2778    2095  0 11:57 ?        00:00:26 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=23 --no-v8-untrusted-code-mitigations --shared-files
+john        2798    1609  0 11:57 ?        00:00:00 /usr/lib/gvfsd-network --spawner :1.3 /org/gtk/gvfs/exec_spaw/1
+john        2818    1609  0 11:57 ?        00:00:00 /usr/lib/gvfsd-dnssd --spawner :1.3 /org/gtk/gvfs/exec_spaw/3
+john        2845    2095  0 11:58 ?        00:00:30 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=37 --no-v8-untrusted-code-mitigations --shared-files
+john        2886    1569  0 12:00 ?        00:00:09 /usr/bin/nautilus --gapplication-service
+john        3055    2087  0 12:10 ?        00:01:57 /usr/lib/chromium/chromium --type=utility --utility-sub-type=audio.mojom.AudioService --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --service-sandbox-type=audio --shared-files
+john        3099    1569  0 12:10 ?        00:00:00 /usr/lib/gvfsd-metadata
+john        3112    1675  0 12:11 ?        00:00:00 /bin/sh /usr/share/pycharm/bin/pycharm.sh
+john        3154    3112 15 12:11 ?        00:38:49 /usr/lib/jvm/java-11-openjdk//bin/java -classpath /usr/share/pycharm/lib/bootstrap.jar:/usr/share/pycharm/lib/extensions.jar:/usr/share/pycharm/lib/util.jar:/usr/share/pycharm/lib/jdom.jar:/usr/share/pycharm/lib/log4j.jar:/usr/share/pycharm/lib/trove4j.jar:/usr/share/pycharm/lib/jna.jar -Xms128m -Xmx957m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -XX:CICompilerCount=2 -Dsun.io.useCanonPrefixCache=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djdk.attach.allowAttachSelf -Dkotlinx.coroutines.debug=off -Djdk.module.illegalAccess.silent=true -Dawt.useSystemAAFontSettings=on -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -Dsun.tools.attach.tmp.only=true -javaagent:/home/john/.jetbrains/jetbrains-agent-v3.2.0.de72.619 -XX:ErrorFile=/home/john/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/home/john/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2020.1 -Djb.vmOptionsFile=/home/john/.config/JetBrains/PyCharmCE2020.1/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore com.intellij.idea.Main
+john        3656    3154  0 12:16 pts/0    00:00:00 /bin/bash --rcfile /usr/share/pycharm/plugins/terminal/jediterm-bash.in -i
+john        3980    3154  0 12:18 ?        00:00:00 /usr/share/pycharm/bin/fsnotifier64
+root        4320       2  0 12:56 ?        00:00:01 [kworker/u17:3-rb_allocator]
+john        4323    1569  0 12:56 ?        00:00:38 evince /home/john/Study/OTUS/Materials/Python_QA_March_2020_Lesson_23_-_Работа_с_Linux_в_Python.pdf
+john        4330    1569  0 12:56 ?        00:00:00 /usr/lib/evinced
+john        6116    1569  0 14:35 ?        00:00:02 /usr/lib/gnome-terminal-server
+john        6123    6116  0 14:35 pts/1    00:00:00 bash
+root        6980       2  0 15:04 ?        00:00:00 [kworker/3:1-events]
+root        7380       2  0 15:29 ?        00:00:01 [kworker/u16:2+events_unbound]
+john        7681    1675  0 15:55 ?        00:00:01 pamac checkupdates -q --refresh-tmp-files-dbs --use-timestamp
+root        7868       2  0 16:03 ?        00:00:00 [kworker/0:0-events]
+root        7965       2  0 16:06 ?        00:00:00 [kworker/u16:1-iwlwifi]
+root        8102       2  0 16:08 ?        00:00:00 [kworker/2:2-events]
+root        8164       2  0 16:09 ?        00:00:00 [kworker/0:1-events]
+root        8366       2  0 16:13 ?        00:00:00 [kworker/u16:4-phy0]
+root        8390       2  0 16:15 ?        00:00:00 [kworker/3:2-events]
+root        8396       2  0 16:15 ?        00:00:00 [kworker/1:2-events]
+root        8403       2  0 16:15 ?        00:00:00 [kworker/2:1-events]
+root        8409       2  0 16:15 ?        00:00:00 [kworker/1:3-mm_percpu_wq]
+john        8538    2095  0 16:15 ?        00:00:03 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=199 --no-v8-untrusted-code-mitigations --shared-files
+john        8550    2095  0 16:16 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=200 --no-v8-untrusted-code-mitigations --shared-files
+john        8561    2095  0 16:16 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=201 --no-v8-untrusted-code-mitigations --shared-files
+john        8573    2095  0 16:16 ?        00:00:01 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=202 --no-v8-untrusted-code-mitigations --shared-files
+john        8585    2095  0 16:16 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=203 --no-v8-untrusted-code-mitigations --shared-files
+john        8596    2095  0 16:16 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=204 --no-v8-untrusted-code-mitigations --shared-files
+john        8819    2095  2 16:18 ?        00:00:09 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=222 --no-v8-untrusted-code-mitigations --shared-files
+john        8836    2095  0 16:18 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=223 --no-v8-untrusted-code-mitigations --shared-files
+john        8936    2095  0 16:19 ?        00:00:02 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=231 --no-v8-untrusted-code-mitigations --shared-files
+john        8947    2095  0 16:19 ?        00:00:00 /usr/lib/chromium/chromium --type=renderer --field-trial-handle=12804587167843650098,17736000208107465137,131072 --lang=en-US --enable-auto-reload --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=232 --no-v8-untrusted-code-mitigations --shared-files
+root        9007       2  0 16:21 ?        00:00:00 [kworker/0:2-events]
+root        9008       2  0 16:21 ?        00:00:00 [kworker/1:0]
+root        9050       2  0 16:22 ?        00:00:00 [kworker/u16:0-phy0]
+john        9125    3154  0 16:25 ?        00:00:00 /home/john/Study/OTUS/PythonQAOtus_Lesson23/venv/bin/python /home/john/Study/OTUS/PythonQAOtus_Lesson23/work_with_Linux.py
+john        9126    9125  0 16:25 ?        00:00:00 ps -ef
+
+
+2. Информацию о конкретном процессе (по pid текущего скрипта): 
+    PID TTY          TIME CMD
+   9125 ?        00:00:00 python
+
+
+3. Список в файлов в директории (указать директорию): 
+Путь к директории: /
+Список файлов:
+usr
+bin
+lost+found
+lib64
+tmp
+root
+dev
+desktopfs-pkgs.txt
+snap
+srv
+proc
+var
+rootfs-pkgs.txt
+etc
+home
+.check-aur
+mnt
+sbin
+lib
+boot
+opt
+.manjaro-tools
+run
+sys
+
+
+4. Текущую директорию и список в файлов в ней: 
+Путь к директории: /home/john/Study/OTUS/PythonQAOtus_Lesson23
+Список файлов:
+venv
+output.txt
+work_with_Linux.py
+.idea
+Study
+.git
+README.md
+.gitignore
+
+
+5. Версию ядра: 
+5.4.52-1-MANJARO
+
+
+6. Версию операционной системы: 
+LSB Version:	n/a
+Distributor ID:	ManjaroLinux
+Description:	Manjaro Linux
+Release:	20.0.3
+Codename:	Lysia
